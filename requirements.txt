@@ -12,3 +12,6 @@ PyPDF2
 # Data handling
 pandas
 numpy
+
+
+gunicorn
