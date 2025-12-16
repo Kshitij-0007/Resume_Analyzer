@@ -1,0 +1,14 @@
+# These are the all libraries needed to install before running
+# Core NLP & ML libraries
+spacy
+nltk
+scikit-learn
+sentence-transformers
+
+# Resume parsing
+python-docx
+PyPDF2
+
+# Data handling
+pandas
+numpy

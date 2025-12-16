@@ -1,0 +1,189 @@
+/* ===== RESET ===== */
+* {
+    box-sizing: border-box;
+    transition: all 0.25s ease;
+}
+
+/* ===== GLOBAL ===== */
+body {
+    font-family: "Inter", "Segoe UI", sans-serif;
+    background: radial-gradient(circle at top, #1b1f3b, #0b0f1f);
+    color: #e5e7eb;
+    margin: 0;
+    padding: 0;
+}
+
+/* ===== PAGE FADE-IN ===== */
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(18px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== MAIN CARD ===== */
+.container {
+    max-width: 900px;
+    margin: 50px auto;
+    background: rgba(17, 24, 39, 0.88);
+    backdrop-filter: blur(14px);
+    padding: 42px 48px;
+    border-radius: 18px;
+    box-shadow:
+        0 0 0 1px rgba(139, 92, 246, 0.18),
+        0 30px 70px rgba(0, 0, 0, 0.65);
+    animation: fadeUp 0.7s ease forwards;
+}
+
+.container:hover {
+    transform: translateY(-4px);
+    box-shadow:
+        0 0 0 1px rgba(139, 92, 246, 0.35),
+        0 40px 90px rgba(0, 0, 0, 0.75);
+}
+
+/* ===== HEADINGS ===== */
+h1 {
+    text-align: center;
+    font-size: 38px;
+    font-weight: 800;
+    background: linear-gradient(90deg, #8b5cf6, #3b82f6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: #9ca3af;
+    margin-bottom: 38px;
+    font-size: 15px;
+}
+
+/* ===== FORM ===== */
+label {
+    display: block;
+    margin-top: 18px;
+    margin-bottom: 6px;
+    font-weight: 600;
+    color: #c7d2fe;
+}
+
+input[type="file"] {
+    width: 100%;
+    padding: 12px;
+    background: #020617;
+    border: 1px solid #312e81;
+    border-radius: 10px;
+    color: #e5e7eb;
+}
+
+input[type="file"]:focus {
+    border-color: #7c3aed;
+    box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.25);
+}
+
+input[type="file"]::file-selector-button {
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-right: 12px;
+}
+
+/* ===== BUTTON ===== */
+button {
+    margin-top: 30px;
+    width: 100%;
+    padding: 16px;
+    background: linear-gradient(135deg, #7c3aed, #2563eb);
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    letter-spacing: 0.4px;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 35px rgba(124, 58, 237, 0.45);
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ===== DIVIDER ===== */
+hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(to right, transparent, #312e81, transparent);
+    margin: 40px 0;
+}
+
+/* ===== SECTIONS ===== */
+.section {
+    margin-top: 28px;
+    animation: fadeUp 0.6s ease forwards;
+}
+
+/* ===== SCORE ===== */
+.score {
+    font-size: 46px;
+    font-weight: 900;
+    background: linear-gradient(90deg, #22c55e, #4ade80);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: fadeUp 0.8s ease forwards;
+}
+
+/* ===== BADGES ===== */
+.badge {
+    display: inline-block;
+    background: rgba(124, 58, 237, 0.18);
+    border: 1px solid rgba(124, 58, 237, 0.4);
+    color: #e9d5ff;
+    padding: 8px 14px;
+    margin: 8px 8px 0 0;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 500;
+    animation: fadeUp 0.5s ease forwards;
+}
+
+.badge:hover {
+    transform: scale(1.06);
+}
+
+.badge.missing {
+    background: rgba(239, 68, 68, 0.18);
+    border: 1px solid rgba(239, 68, 68, 0.4);
+    color: #fecaca;
+}
+
+/* ===== LISTS ===== */
+ul {
+    margin-top: 12px;
+    padding-left: 18px;
+}
+
+li {
+    margin-bottom: 8px;
+    color: #d1d5db;
+}
+
+/* ===== FOOTER ===== */
+.footer {
+    margin-top: 42px;
+    text-align: center;
+    font-size: 13px;
+    color: #6b7280;
+}

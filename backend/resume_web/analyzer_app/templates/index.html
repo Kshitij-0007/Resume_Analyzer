@@ -1,0 +1,82 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <h1>Resume Analyzer</h1>
+    <p class="subtitle">
+        Automated ATS-style resume evaluation & skill matching
+    </p>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        <label>Upload Resume (PDF / DOCX)</label>
+        <input type="file" name="resume" required>
+
+        <label>Upload Job Description (Optional)</label>
+        <input type="file" name="jd">
+
+        <button type="submit">Analyze Resume</button>
+    </form>
+
+    {% if result %}
+        <hr>
+
+        {% if result.mode == "JD-based" %}
+            <div class="section">
+                <h2>ATS Match Score</h2>
+                <p class="score">{{ result.ats_score }}%</p>
+            </div>
+
+            <div class="section">
+                <h3>Matched Skills</h3>
+                {% for skill in result.matched_skills %}
+                    <span class="badge">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="section">
+                <h3>Missing Skills</h3>
+                {% for skill in result.missing_skills %}
+                    <span class="badge missing">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+        {% else %}
+            <div class="section">
+                <h2>Resume Readiness</h2>
+                <p class="score">{{ result.baseline_score }}%</p>
+                <p>{{ result.readiness_level }}</p>
+            </div>
+
+            <div class="section">
+                <h3>Skills Detected</h3>
+                {% for skill in result.skills_found %}
+                    <span class="badge">{{ skill }}</span>
+                {% endfor %}
+            </div>
+
+            <div class="section">
+                <h3>Improvement Suggestions</h3>
+                <ul>
+                    {% for s in result.suggestions %}
+                        <li>{{ s }}</li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endif %}
+    {% endif %}
+
+    <div class="footer">
+        Resume Analyzer · Django + NLP
+    </div>
+</div>
+
+</body>
+</html>
